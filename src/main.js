@@ -65,6 +65,23 @@
 
 // console.log(Object());
 
+// const hof = function (array, logic) {
+//   const result = [];
+//   for (let e of array) {
+//     result.push(logic(e));
+//   }
+//   return result;
+// };
+// // console.table(products);
+
+// console.log(
+//     hof(products, (product) => ({ ...product, price: product.price * 2 })),
+//   hof(products, (product) => ({ ...product, price: product.price * 2 })),
+// );
+
+// console.log(products);
+// console.log(...products);
+
 const products = [
   {
     id: 1,
@@ -334,18 +351,16 @@ const products = [
   },
 ];
 
-const hof = function (array, logic) {
-  const result = [];
-  for (let e of array) {
-    result.push(logic(e));
-  }
-  return result;
-};
-// console.table(products);
+console.table(products);
 
-console.log(
-  hof(products, (product) => ({ ...product, price: product.price * 2 })),
+// product id is even , price + 100 , total price , title += 'KZS'
+console.table(
+  products
+    .map(({ id, title, price, rating: { rate } }) => ({
+      id,
+      title,
+      price,
+      rate,
+    }))
+    .filter((el) => el.id % 2 === 0 && el.rate > 3),
 );
-
-// console.log(products);
-// console.log(...products);
