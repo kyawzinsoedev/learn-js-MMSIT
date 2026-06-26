@@ -364,3 +364,4 @@ console.table(
     }))
     .filter((el) => el.id % 2 === 0 && el.rate > 3),
 );
+console.log("Change Git Config User . Email");
